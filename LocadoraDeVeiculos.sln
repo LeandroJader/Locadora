@@ -1,9 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36511.14 d17.14
+VisualStudioVersion = 17.14.36511.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos", "LocadoraDeVeiculos\LocadoraDeVeiculos.csproj", "{FD8DCBB0-EF25-4906-8EF3-2664925548CC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.dominio", "LocadoraDeVeiculos\LocadoraDeVeiculos.dominio.csproj", "{FD8DCBB0-EF25-4906-8EF3-2664925548CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.apli", "LocadoraDeVeiculos.apli\LocadoraDeVeiculos.apli.csproj", "{1D7D5191-1ED7-4C63-8CA9-D1B2D5800385}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculos.Infraestrutura.Orm", "LocadoraDeVeiculos.Infraestrutura,Orm\LocadoraDeVeiculos.Infraestrutura.Orm.csproj", "{709A0337-771E-4C0C-AA81-938AD05EAF68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LocadoraDeVeiculosWebApi", "LocadoraDeVeiculosWebApi\LocadoraDeVeiculosWebApi.csproj", "{0CE64E00-B2A4-4093-83C3-AE27AE932552}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{FD8DCBB0-EF25-4906-8EF3-2664925548CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD8DCBB0-EF25-4906-8EF3-2664925548CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD8DCBB0-EF25-4906-8EF3-2664925548CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D7D5191-1ED7-4C63-8CA9-D1B2D5800385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D7D5191-1ED7-4C63-8CA9-D1B2D5800385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D7D5191-1ED7-4C63-8CA9-D1B2D5800385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D7D5191-1ED7-4C63-8CA9-D1B2D5800385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{709A0337-771E-4C0C-AA81-938AD05EAF68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709A0337-771E-4C0C-AA81-938AD05EAF68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{709A0337-771E-4C0C-AA81-938AD05EAF68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709A0337-771E-4C0C-AA81-938AD05EAF68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CE64E00-B2A4-4093-83C3-AE27AE932552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CE64E00-B2A4-4093-83C3-AE27AE932552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CE64E00-B2A4-4093-83C3-AE27AE932552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CE64E00-B2A4-4093-83C3-AE27AE932552}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
