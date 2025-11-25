@@ -1,0 +1,13 @@
+﻿using FluentResults;
+using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Excluir;
+using MediatR;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.Excluir
+{
+    public record ExcluirAutomovelRequest(Guid Id) : IRequest<Result<ExcluirAutomovelResponse>>;
+}
