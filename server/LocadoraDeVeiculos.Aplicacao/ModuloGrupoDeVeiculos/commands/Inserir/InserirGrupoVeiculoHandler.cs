@@ -18,16 +18,15 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Inserir
     IRepositorioGrupoDeVeiculos repositorioGrupoVeiculo,
     ITenantProvider tenantProvider,
     IValidator<GrupoDeVeiculos> validador
-) : IRequestHandler<InseririGrupoVeiculoRequest, Result<InserirGrupoVeiculoResponse>>
+) : IRequestHandler<InserirGrupoVeiculoRequest, Result<InserirGrupoVeiculoResponse>>
     {
-        public async Task<Result<InserirGrupoVeiculoResponse>> Handle(InseririGrupoVeiculoRequest request, CancellationToken cancellationToken)
+        public async Task<Result<InserirGrupoVeiculoResponse>> Handle(InserirGrupoVeiculoRequest request, CancellationToken cancellationToken)
         {
             var GrupoVeiculo = new GrupoDeVeiculos(request.Nome)
             {
                 UsuarioId = tenantProvider.UsuarioId.GetValueOrDefault()
             };
 
-            // validações
             var resultadoValidacao = await validador.ValidateAsync(GrupoVeiculo);
 
             if (!resultadoValidacao.IsValid)

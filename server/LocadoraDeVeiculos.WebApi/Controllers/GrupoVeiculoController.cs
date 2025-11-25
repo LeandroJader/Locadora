@@ -18,7 +18,7 @@ public class GrupoVeiculosController(IMediator mediator) : ControllerBase
     // POST: api/grupos-veiculos
     [HttpPost]
     [ProducesResponseType(typeof(InserirGrupoVeiculoResponse), StatusCodes.Status200OK)]
-    public async Task<IActionResult> Inserir(InseririGrupoVeiculoRequest request)
+    public async Task<IActionResult> Inserir(InserirGrupoVeiculoRequest request)
     {
         var resultado = await mediator.Send(request);
 
@@ -33,6 +33,7 @@ public class GrupoVeiculosController(IMediator mediator) : ControllerBase
         var editarRequest = new EditarGrupoVeiculoRequest(
             id,
             request.Nome
+
         );
 
         var resultado = await mediator.Send(editarRequest);

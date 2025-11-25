@@ -1,4 +1,5 @@
 ﻿using FluentResults;
+using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -8,5 +9,5 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Inserir
 {
-    public record InseririGrupoVeiculoRequest(string Nome) : IRequest<Result<InserirGrupoVeiculoResponse>>;
+    public record InserirGrupoVeiculoRequest(string Nome) : IRequest<Result<InserirGrupoVeiculoResponse>>;
 }

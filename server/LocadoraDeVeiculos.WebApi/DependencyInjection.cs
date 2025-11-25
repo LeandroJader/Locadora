@@ -1,7 +1,9 @@
 ﻿using FluentValidation;
 using LocadoraDeVeiculos.Aplicacao.ModuloAutenticacao.Commands.Registrar;
 using LocadoraDeVeiculos.Dominio.Compartilhado;
+using LocadoraDeVeiculos.Dominio.ModuloGrupoVeiculos;
 using LocadoraDeVeiculos.Infraestrutura.Orm.Compartilhado;
+using LocadoraDeVeiculos.Infraestrutura.Orm.ModuloGrupoVeiculo;
 using LocadoraDeVeiculos.WebApi.Filters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
@@ -37,7 +39,7 @@ public static class DependencyInjection
 
     public static void ConfigureRepositories(this IServiceCollection services)
     {
-        //services.AddScoped<IRepositorioMedico, RepositorioMedicoEmOrm>();
+        services.AddScoped<IRepositorioGrupoDeVeiculos, RepositorioGrupoVeiculoEmOrm>();
         //services.AddScoped<IRepositorioPaciente, RepositorioPacienteEmOrm>();
         //services.AddScoped<IRepositorioAtividadeMedica, RepositorioAtividadeMedicaEmOrm>();
     }
@@ -144,7 +146,7 @@ public static class DependencyInjection
 
     public static void ConfigureFluentValidation(this IServiceCollection services)
     {
-        //services.AddValidatorsFromAssemblyContaining<ValidadorMedico>();
+        services.AddValidatorsFromAssemblyContaining<ValidadorGrupoVeiculo>();
     }
 
     public static void ConfigureSerilog(this IServiceCollection services, ILoggingBuilder logging, IConfiguration config)
