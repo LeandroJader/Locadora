@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.SelecionarPorId
 {
-    internal class SelecionarAutomovelPorIdRequestHandler(
+    public record SelecionarAutomovelPorIdRequestHandler(
         IRepositorioAutomovel repositorioAutomovel
     ) : IRequestHandler<SelecionarAutomovelPorIdRequest, Result<SelecionarAutomovelPorIdResponse>>
     {

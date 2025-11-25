@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.Excluir
 {
-    internal class ExcluirAutomovelResponse
-    {
-    }
+    public record ExcluirAutomovelResponse();
 }

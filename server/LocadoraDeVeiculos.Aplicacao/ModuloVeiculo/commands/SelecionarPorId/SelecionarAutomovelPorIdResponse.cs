@@ -1,12 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.SelecionarPorId
 {
-    internal class SelecionarAutomovelPorIdResponse
-    {
-    }
+    public record SelecionarAutomovelPorIdResponse(
+        Guid Id,
+        string Placa,
+        string Marca,
+        string Modelo,
+        string Cor,
+        string TipoCombustivel,
+        decimal CapacidadeTanque,
+        DateOnly Ano,
+        Guid GrupoVeiculosId
+    );
 }

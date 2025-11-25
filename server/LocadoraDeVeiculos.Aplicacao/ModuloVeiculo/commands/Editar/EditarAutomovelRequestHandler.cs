@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.editar
 {
-    internal class EditarAutomovelRequestHandler
+    public record EditarAutomovelRequestHandler
     {
     }
 }

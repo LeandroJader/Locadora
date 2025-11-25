@@ -1,12 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.Selecionar
 {
-    internal class SelecionarAutomovelResponse
+    public record SelecionarAutomovelDto(
+        Guid Id,
+        string Placa,
+        string Marca,
+        string Modelo,
+        string Cor,
+        string TipoCombustivel,
+        decimal CapacidadeTanque,
+        DateOnly Ano,
+        Guid GrupoVeiculosId
+    );
+
+    public record SelecionarAutomovelResponse
     {
+        public required int QuantidadeRegistros { get; init; }
+        public required IEnumerable<SelecionarAutomovelDto> Registros { get; init; }
     }
 }

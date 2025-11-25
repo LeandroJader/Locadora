@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.Commands.Inserir
 {
-    internal class InserirAutomovelHandler : IRequestHandler<InserirAutomovelRequest, Result<InseririAutomovelResponse>>
+    public record InserirAutomovelHandler : IRequestHandler<InserirAutomovelRequest, Result<InseririAutomovelResponse>>
     {
         private readonly IContextoPersistencia _contexto;
         private readonly IRepositorioAutomovel _repositorio;

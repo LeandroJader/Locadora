@@ -6,7 +6,5 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.inserir
 {
-    internal class InseririAutomovelResponse
-    {
-    }
+    public record InseririAutomovelResponse(Guid Id);
 }
