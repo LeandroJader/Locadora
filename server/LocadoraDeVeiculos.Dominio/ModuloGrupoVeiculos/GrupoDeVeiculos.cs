@@ -12,27 +12,27 @@ namespace LocadoraDeVeiculos.Dominio.ModuloGrupoVeiculos
     public class GrupoDeVeiculos : EntidadeBase
     {
         public string Nome { get; set; }
-        public List<Automovel>? Veiculos { get; private set; } = new List<Automovel>();
+        public List<Automovel> Veiculos { get; set; }
 
-
-        public GrupoDeVeiculos(string nome)
+        public GrupoDeVeiculos()
+        {
+            Veiculos = []; 
+        }
+        public GrupoDeVeiculos(string nome) :this()
         {
             Nome = nome;
-            Veiculos = new List<Automovel>();
+           
         }
 
-        public GrupoDeVeiculos(string nome, List<Automovel> veiculos)
-        {
-            Nome = nome;
-            Veiculos = veiculos;
-        }
         public void AdicionarVeiculo(Automovel automovel)
-        {
-            Veiculos.Add(automovel);
+        {if(!Veiculos.Contains(automovel))
+
+                Veiculos.Add(automovel);
         }
         public void RemoverVeiculo(Automovel automovel)
         {
-            Veiculos.Remove(automovel);
+            if(Veiculos.Contains(automovel))
+                Veiculos.Remove(automovel);
         }
     }
    
