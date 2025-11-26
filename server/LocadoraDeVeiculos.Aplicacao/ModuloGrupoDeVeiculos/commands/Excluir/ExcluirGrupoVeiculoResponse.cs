@@ -6,6 +6,6 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Excluir
 {
-    public record ExcluirGrupoDeVeiculoResponse ();
+    public record ExcluirGrupoVeiculoResponse ();
     
 }

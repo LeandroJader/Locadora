@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Aplicacao.ModuloConduror.Commands.Inserir
+namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.Inserir
 {
-    internal class InserirCondutorResponse
-    {
-    }
+    public record InserirCondutorResponse(Guid Id);
 }

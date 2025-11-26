@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentResults;
+using MediatR;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.SelecionarTodos
 {
-    internal class SelecionarTodosCondutorRequest
-    {
-    }
+    public record SelecionarCondutoresRequest
+        : IRequest<Result<SelecionarCondutoresResponse>>;
 }

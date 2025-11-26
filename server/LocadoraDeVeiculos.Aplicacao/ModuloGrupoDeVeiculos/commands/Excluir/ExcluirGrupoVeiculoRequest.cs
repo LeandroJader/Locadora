@@ -8,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Excluir
 {
-    public record ExcluirGrupoVeiculoRequest(Guid Id) : IRequest<Result<ExcluirGrupoDeVeiculoResponse>>;
+    public record ExcluirGrupoVeiculoRequest(Guid Id) : IRequest<Result<ExcluirGrupoVeiculoResponse>>;
 }

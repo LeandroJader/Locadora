@@ -1,21 +1,27 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.Commands.SelecionarPorId;
-using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.SelecionarTodos;
-using LocadoraDeVeiculos.WebApi.Extensions;
-using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Inserir;
+﻿using LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.Editar;
+using LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.Excluir;
+using LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.Inserir;
+using LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.SelecionarPorId;
+using LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.SelecionarTodos;
 using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Editar;
 using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Excluir;
+using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Inserir;
+using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.SelecionarTodos;
+using LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.Commands.SelecionarPorId;
+using LocadoraDeVeiculos.WebApi.Extensions;
+using MediatR;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 namespace LocadoraDeVeiculos.WebApi.Controllers;
 
 [ApiController]
 [Authorize]
 [Route("api/grupos-veiculos")]
-public class GrupoVeiculosController(IMediator mediator) : ControllerBase
+public class GrupoVeiculoController(IMediator mediator) : ControllerBase
 {
-    // POST: api/grupos-veiculos
+
+
     [HttpPost]
     [ProducesResponseType(typeof(InserirGrupoVeiculoResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Inserir(InserirGrupoVeiculoRequest request)
@@ -25,7 +31,6 @@ public class GrupoVeiculosController(IMediator mediator) : ControllerBase
         return resultado.ToHttpResponse();
     }
 
-    // PUT: api/grupos-veiculos/{id}
     [HttpPut("{id:guid}")]
     [ProducesResponseType(typeof(EditarGrupoVeiculoResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Editar(Guid id, EditarGrupoVeiculoPartialRequest request)
@@ -33,17 +38,14 @@ public class GrupoVeiculosController(IMediator mediator) : ControllerBase
         var editarRequest = new EditarGrupoVeiculoRequest(
             id,
             request.Nome
-
         );
 
         var resultado = await mediator.Send(editarRequest);
 
         return resultado.ToHttpResponse();
     }
-
-    // DELETE: api/grupos-veiculos/{id}
     [HttpDelete("{id:guid}")]
-    [ProducesResponseType(typeof(ExcluirGrupoDeVeiculoResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ExcluirGrupoVeiculoResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> Excluir(Guid id)
     {
         var excluirRequest = new ExcluirGrupoVeiculoRequest(id);
@@ -53,7 +55,6 @@ public class GrupoVeiculosController(IMediator mediator) : ControllerBase
         return resultado.ToHttpResponse();
     }
 
-    // GET: api/grupos-veiculos
     [HttpGet]
     [ProducesResponseType(typeof(SelecionarGrupoVeiculosResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> SelecionarTodos()
@@ -63,9 +64,10 @@ public class GrupoVeiculosController(IMediator mediator) : ControllerBase
         return resultado.ToHttpResponse();
     }
 
-    // GET: api/grupos-veiculos/{id}
+
+
     [HttpGet("{id:guid}")]
-    [ProducesResponseType(typeof(SelecionarGrupoVeiculoPorIdResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(SelecionarGrupoVeiculosResponse), StatusCodes.Status200OK)]
     public async Task<IActionResult> SelecionarPorId(Guid id)
     {
         var selecionarPorIdRequest = new SelecionarGrupoVeiculoPorIdRequest(id);
@@ -75,3 +77,4 @@ public class GrupoVeiculosController(IMediator mediator) : ControllerBase
         return resultado.ToHttpResponse();
     }
 }
+

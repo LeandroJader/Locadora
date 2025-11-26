@@ -14,9 +14,9 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Excluir
     public record ExcluirGrupoVeiculosRequestHandler(
     IRepositorioGrupoDeVeiculos repositorioGrupoVeiculo,
     IContextoPersistencia contexto
-) : IRequestHandler<ExcluirGrupoVeiculoRequest, Result<ExcluirGrupoDeVeiculoResponse>>
+) : IRequestHandler<ExcluirGrupoVeiculoRequest, Result<ExcluirGrupoVeiculoResponse>>
     {
-        public async Task<Result<ExcluirGrupoDeVeiculoResponse>> Handle(ExcluirGrupoVeiculoRequest request, CancellationToken cancellationToken)
+        public async Task<Result<ExcluirGrupoVeiculoResponse>> Handle(ExcluirGrupoVeiculoRequest request, CancellationToken cancellationToken)
         {
             var veiculoSelecionado = await repositorioGrupoVeiculo.SelecionarPorIdAsync(request.Id);
 
@@ -36,7 +36,7 @@ namespace LocadoraDeVeiculos.Aplicacao.ModuloGrupoDeVeiculos.commands.Excluir
                 return Result.Fail(ErrorResults.InternalServerError(ex));
             }
 
-            return Result.Ok(new ExcluirGrupoDeVeiculoResponse());
+            return Result.Ok(new ExcluirGrupoVeiculoResponse());
         }
     };
     

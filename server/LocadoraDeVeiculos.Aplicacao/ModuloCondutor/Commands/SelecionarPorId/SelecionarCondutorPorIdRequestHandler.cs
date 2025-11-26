@@ -1,34 +1,46 @@
 ﻿using FluentResults;
 using LocadoraDeVeiculos.Aplicacao.Compartilhado;
 using LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.SelecionarPorId;
-using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
 using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using MediatR;
-using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Aplicacao.ModuloVeiculo.commands.SelecionarPorId
+namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.SelecionarPorId
 {
-    public record SelecionarCondutorRequestHandler(
-        IRepositorioCondutor repositorioCondutor
-    ) : IRequestHandler<SelecionarCondutorPorIdRequest, Result<SelecionarCondutorPorIdResponse>>
+    public class SelecionarCondutorPorIdHandler
+        : IRequestHandler<SelecionarCondutorPorIdRequest, Result<SelecionarCondutorPorIdResponse>>
     {
-        public async Task<Result<SelecionarCondutorPorIdRequest>> Handle(
-            SelecionarAutomovelPorIdRequest request,
+        private readonly IRepositorioCondutor _repositorio;
+
+        public SelecionarCondutorPorIdHandler(IRepositorioCondutor repositorio)
+        {
+            _repositorio = repositorio;
+        }
+
+        public async Task<Result<SelecionarCondutorPorIdResponse>> Handle(
+            SelecionarCondutorPorIdRequest request,
             CancellationToken cancellationToken)
         {
-            var condutor = await repositorioCondutor.SelecionarPorIdAsync(request.Id);
+            var condutor = await _repositorio.SelecionarPorIdAsync(request.Id);
 
             if (condutor is null)
                 return Result.Fail(ErrorResults.NotFoundError(request.Id));
 
-            var resposta = new SelecionarAutomovelPorIdResponse(
+            var response = new SelecionarCondutorPorIdResponse(
                 condutor.Id,
-             
+              condutor.Nome,
+              condutor.Cpf,
+              condutor.Cnh,
+                condutor.ValidadeCnh,
+                condutor.Email,
+                condutor.Telefone,
+                condutor.UsuarioId
+
+
             );
 
-            return Result.Ok(resposta);
+            return Result.Ok(response);
         }
     }
 }

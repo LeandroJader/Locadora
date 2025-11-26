@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.SelecionarTodos
+﻿namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.SelecionarTodos
 {
-    internal class SelecionarTodosCondutorResponse
+    public record SelecionarCondutorDto(Guid Id, string Nome, string Cpf, string Email);
+
+    public record SelecionarCondutoresResponse
     {
+        public required int QuantidadeRegistros { get; init; }
+        public required IEnumerable<SelecionarCondutorDto> Registros { get; init; }
     }
 }

@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.Excluir
+namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.Editar
 {
-    internal class Class1
-    {
-    }
+    public record EditarCondutorResponse(Guid Id);
 }

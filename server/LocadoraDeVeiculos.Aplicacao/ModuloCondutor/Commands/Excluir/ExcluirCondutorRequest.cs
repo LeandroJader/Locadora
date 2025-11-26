@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FluentResults;
+using MediatR;
+using System;
 
 namespace LocadoraDeVeiculos.Aplicacao.ModuloCondutor.Commands.Excluir
 {
-    internal class ExcluirCondutorRequest
-    {
-    }
+    public record ExcluirCondutorRequest(Guid Id) : IRequest<Result<ExcluirCondutorResponse>>;
 }

@@ -2,9 +2,11 @@
 using LocadoraDeVeiculos.Aplicacao.ModuloAutenticacao.Commands.Registrar;
 using LocadoraDeVeiculos.Dominio.Compartilhado;
 using LocadoraDeVeiculos.Dominio.ModuloAutomovel;
+using LocadoraDeVeiculos.Dominio.ModuloCondutor;
 using LocadoraDeVeiculos.Dominio.ModuloGrupoVeiculos;
 using LocadoraDeVeiculos.Infraestrutura.Orm.Compartilhado;
 using LocadoraDeVeiculos.Infraestrutura.Orm.ModuloAutomovel;
+using LocadoraDeVeiculos.Infraestrutura.Orm.ModuloCondutor;
 using LocadoraDeVeiculos.Infraestrutura.Orm.ModuloGrupoVeiculo;
 using LocadoraDeVeiculos.WebApi.Filters;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +45,7 @@ public static class DependencyInjection
     {
         services.AddScoped<IRepositorioGrupoDeVeiculos, RepositorioGrupoVeiculoEmOrm>();
         services.AddScoped<IRepositorioAutomovel, RepositorioAutomovelEmOrm>();
+        services.AddScoped<IRepositorioCondutor, RepositorioCondutorEmOrm>();
         //services.AddScoped<IRepositorioAtividadeMedica, RepositorioAtividadeMedicaEmOrm>();
     }
 
@@ -150,7 +153,7 @@ public static class DependencyInjection
     {
         services.AddValidatorsFromAssemblyContaining<ValidadorGrupoVeiculo>();
         services.AddValidatorsFromAssemblyContaining<ValidadorAutomovel>();
-        //services.AddValidatorsFromAssemblyContaining<ValidadorAutomovel>();
+        services.AddValidatorsFromAssemblyContaining<ValidadorCondutor>();
         //services.AddValidatorsFromAssemblyContaining<ValidadorAutomovel>();
     }
 
